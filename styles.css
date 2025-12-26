@@ -21,8 +21,9 @@ body {
     width: 100%; height: 100%;
 }
 
-/* Glassmorphism Bio Card */
-.bio-glass {
+/* --- BIO CARD (Glassmorphism) --- */
+/* Renamed from .bio-glass to .bio-card to match your HTML */
+.bio-card {
     background: var(--glass);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.1);
@@ -32,26 +33,29 @@ body {
     margin: 0 auto;
 }
 
-/* Social Icons 32px */
-.social-icons-container {
+/* --- SOCIAL ICONS FIX --- */
+.social-links {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    align-items: center;
+    gap: 30px; /* Space between the icons */
 }
 
-.social-icon-img {
-    width: 32px;
-    height: 32px;
-    filter: invert(1) brightness(0.8);
+.social-links img {
+    width: 32px;  /* Small Icon Size */
+    height: 32px; /* Small Icon Size */
+    filter: invert(1) brightness(0.8); /* Makes black icons white/grey */
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    object-fit: contain;
 }
 
-.social-icon-img:hover {
-    filter: invert(1) sepia(1) saturate(5) hue-rotate(170deg);
+.social-links img:hover {
+    /* Hover effect: Glow with accent color */
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(170deg) drop-shadow(0 0 5px var(--accent));
     transform: scale(1.3) translateY(-5px);
 }
 
-/* Project Cards */
+/* --- PROJECT CARDS --- */
 .project-card {
     background: var(--glass);
     border: 1px solid rgba(255,255,255,0.05);
@@ -69,6 +73,7 @@ body {
 
 .featured-border { border: 1px solid rgba(0, 210, 255, 0.3); }
 
+/* --- TAGS & BADGES --- */
 .tech-tags span {
     font-family: 'Fira Code', monospace;
     font-size: 0.7rem;
@@ -77,6 +82,19 @@ body {
     padding: 3px 8px;
     border-radius: 5px;
     margin-right: 5px;
+}
+
+/* Styles for the tags in your projects.html */
+.tags span {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    background: rgba(0, 210, 255, 0.1);
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    margin-bottom: 5px;
 }
 
 .mit-badge {
@@ -88,4 +106,37 @@ body {
     padding: 5px;
 }
 
-.back-link { color: var(--accent); text-decoration: none; font-family: 'Fira Code'; }
+/* --- NAVIGATION & LINKS --- */
+.back-link { 
+    color: var(--accent); 
+    text-decoration: none; 
+    font-family: 'Fira Code'; 
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.project-links {
+    margin-top: 1rem;
+}
+
+.btn-action {
+    display: inline-block;
+    padding: 5px 15px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 50px;
+    font-size: 0.8rem;
+    text-decoration: none;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-action:hover {
+    background: var(--accent);
+    color: var(--bg);
+    text-decoration: none;
+}
