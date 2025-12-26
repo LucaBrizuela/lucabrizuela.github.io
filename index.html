@@ -9,15 +9,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <canvas id="canvas-bg"></canvas>
 
     <header class="navbar-custom">
         <nav class="navbar navbar-expand-lg navbar-dark container">
             <a class="navbar-brand font-weight-bold" href="#">&lt;Welcome!&gt;</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="projects.html">Projects</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -25,29 +30,66 @@
 
     <main class="container main-content">
         <section class="hero-section text-center">
+
             <div class="profile-container">
                 <img src="my_photo.jpg" class="profile-img" alt="Luca Brizuela">
                 <div class="online-indicator"></div>
             </div>
-            
+
             <h1 class="typing-title mt-4">Luca Brizuela Fernández</h1>
             <p class="subtitle">Marketing Student & Full-Stack Developer</p>
-            
+
             <div class="bio-card mt-4">
-                <p id="bio-text">Greetings! I am Luca Brizuela Fernández, a proficient programmer with a foundational expertise in C++, C#, Python, JavaScript, and a focused background in Marketing. I completed the MIT's Full-Stack Programming certification, which made proficient in various web development technologies like Web Development, Front-End Development and React, Back-End Development as well as setting-up Continuous Integration (CI) and Continuous Delivery (CD). Let's get in contact!</p>
+                <p id="bio-text">
+                    Greetings! I am Luca Brizuela Fernández, a proficient programmer with a foundational expertise in C++, C#, Python, JavaScript, and a focused background in Marketing. I completed MIT's Full-Stack Programming certification, gaining experience in Web Development, Front-End Development with React, Back-End Development, and CI/CD setup. Let’s get in contact!
+                </p>
             </div>
 
+            <!-- CERTIFICATION SECTION -->
+            <section class="certification-section mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 col-lg-8">
+                        <div class="project-card certification-card">
+                            <a href="https://TU-LINK-DE-LICENCIA-AQUI" target="_blank" class="cert-link">
+                                <div class="project-img-container">
+                                    <img src="mit_certificate.png" class="img-fluid" alt="MIT Full-Stack Certificate">
+                                </div>
+                            </a>
+                            <div class="project-info text-center">
+                                <h3>MIT Full-Stack Development Certification</h3>
+                                <p id="cert-text"></p>
+                                <div class="tags justify-content-center">
+                                    <span>MERN</span>
+                                    <span>React</span>
+                                    <span>Node.js</span>
+                                    <span>Express</span>
+                                    <span>Career Skills</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <div class="social-links mt-5">
-                <a href="https://github.com/LucaBrizuela" target="_blank"><img src="github.png" width="45px" height="45px" alt="GitHub"></a>
-                <a href="https://www.linkedin.com/in/luca-brizuela-8a47a3300/" target="_blank"><img src="linkedin.png" width="45px" height="45px" alt="LinkedIn"></a>
-                <a href="mailto:lucabrizuela02@hotmail.com"><img src="email.png" width="45px" height="45px" alt="Email"></a>
+                <a href="https://github.com/LucaBrizuela" target="_blank">
+                    <img src="github.png" width="45" height="45" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/luca-brizuela-8a47a3300/" target="_blank">
+                    <img src="linkedin.png" width="45" height="45" alt="LinkedIn">
+                </a>
+                <a href="mailto:lucabrizuela02@hotmail.com">
+                    <img src="email.png" width="45" height="45" alt="Email">
+                </a>
             </div>
+
         </section>
     </main>
 
     <script src="scripts.js"></script>
 </body>
 </html>
+
 
 
 
