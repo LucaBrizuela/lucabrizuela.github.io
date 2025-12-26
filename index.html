@@ -3,53 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - My Portfolio</title>
+    <title>Luca Brizuela | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .navbar-nav .nav-link {
-            transition: color 0.3s, text-shadow 0.3s;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #ffc107; /* Highlight color */
-            text-shadow: 0 0 5px #ffc107;
-        }
-    </style>
 </head>
 <body>
-    <header class="bg-dark text-white">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#">Portfolio</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="projects.html">Projects</a>
-                    </li>
+    <canvas id="canvas-bg"></canvas>
+
+    <header class="navbar-custom">
+        <nav class="navbar navbar-expand-lg navbar-dark container">
+            <a class="navbar-brand font-weight-bold" href="#">&lt;LUCA /&gt;</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
                 </ul>
             </div>
         </nav>
     </header>
-    <main class="container mt-5">
-        <section class="video-intro text-center">
-            <h1>Welcome to My Portfolio!</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/YwMV_Qxkjec" frameborder="0" allowfullscreen></iframe>
-        </section>
-        <section class="bio text-center mt-5">
-            <img src="my_photo.jpg" class="rounded-circle img-highlight" alt="Your Photo" width="150" height="150">
-            <p id="bio-text">Greetings! I am Luca Brizuela Fernández, a proficient programmer with a foundational expertise in C++, C# and Python, and a focused background in Cybersecurity Engineering. 
-                Currently advancing my skills through MIT's Full-Stack Programming certification, I am dedicated to mastering the latest in JavaScript and web development technologies.</p>
-            <div class="social-icons">
-                <a href="https://github.com/LucaBrizuela" target="_blank"><img src="github.png" alt="GitHub"></a>
-                <a href="https://www.linkedin.com/in/luca-brizuela-8a47a3300/" target="_blank"><img src="linkedin.png" alt="LinkedIn"></a>
-                <a href="mailto:lucabrizuela02@hotmail.com"><img src="email.png" alt="Email"></a>
+
+    <main class="container main-content">
+        <section class="hero-section text-center">
+            <div class="profile-container">
+                <img src="my_photo.jpg" class="profile-img" alt="Luca Brizuela">
+                <div class="online-indicator"></div>
+            </div>
+            
+            <h1 class="typing-title mt-4">Luca Brizuela Fernández</h1>
+            <p class="subtitle">Marketing Student & Full-Stack Developer</p>
+            
+            <div class="bio-card mt-4">
+                <p id="bio-text">Proficient programmer specialized in C++, C#, and Python. Currently bridging the gap between Cybersecurity Engineering and modern Full-Stack architectures through MIT xPro certification.</p>
+            </div>
+
+            <div class="social-links mt-5">
+                <a href="https://github.com/LucaBrizuela" target="_blank" class="social-icon">GitHub</a>
+                <a href="https://www.linkedin.com/in/luca-brizuela-8a47a3300/" target="_blank" class="social-icon">LinkedIn</a>
+                <a href="mailto:lucabrizuela02@hotmail.com" class="social-icon">Email</a>
             </div>
         </section>
     </main>
+
     <script src="scripts.js"></script>
 </body>
 </html>
-
