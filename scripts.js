@@ -89,3 +89,4 @@ preparing me to enter the tech industry as an entry-level full-stack developer o
 window.addEventListener('resize', initCanvas);
 
 
+
