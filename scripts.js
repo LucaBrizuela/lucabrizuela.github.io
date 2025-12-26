@@ -16,14 +16,17 @@ class Particle {
         this.speedX = Math.random() * 1 - 0.5;
         this.speedY = Math.random() * 1 - 0.5;
     }
+
     update() {
         this.x += this.speedX;
         this.y += this.speedY;
+
         if (this.x > canvas.width) this.x = 0;
         if (this.x < 0) this.x = canvas.width;
         if (this.y > canvas.height) this.y = 0;
         if (this.y < 0) this.y = canvas.height;
     }
+
     draw() {
         ctx.fillStyle = 'rgba(0, 210, 255, 0.5)';
         ctx.beginPath();
@@ -33,6 +36,7 @@ class Particle {
 }
 
 function createParticles() {
+    particles = [];
     for (let i = 0; i < 80; i++) {
         particles.push(new Particle());
     }
@@ -52,6 +56,7 @@ function typeEffect(element, speed) {
     const text = element.innerText;
     element.innerText = "";
     let i = 0;
+
     const timer = setInterval(() => {
         if (i < text.length) {
             element.append(text.charAt(i));
@@ -69,7 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const bio = document.getElementById('bio-text');
     if (bio) typeEffect(bio, 30);
+
+    const certText = document.getElementById('cert-text');
+    if (certText) {
+        certText.innerText = `Stepping into a career in software and web development requires a balance of hard and soft skills.
+This certification guided me through professional communication, elevator pitch development, and technical growth using the MERN stack.
+The program covered Web Development fundamentals, Front-End Development with React, and Back-End Development with Node.js and Express,
+preparing me to enter the tech industry as an entry-level full-stack developer or to specialize further.`;
+
+        typeEffect(certText, 20);
+    }
 });
 
 window.addEventListener('resize', initCanvas);
+
 
