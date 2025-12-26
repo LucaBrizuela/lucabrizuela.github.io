@@ -25,9 +25,12 @@ body {
     border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.navbar-brand { font-family: 'Fira Code', monospace; color: var(--accent) !important; }
+.navbar-brand {
+    font-family: 'Fira Code', monospace;
+    color: var(--accent) !important;
+}
 
-/* Profile Section */
+/* Profile */
 .profile-container {
     position: relative;
     width: 150px;
@@ -43,9 +46,11 @@ body {
     transition: transform 0.5s ease;
 }
 
-.profile-img:hover { transform: rotate(5deg) scale(1.05); }
+.profile-img:hover {
+    transform: rotate(5deg) scale(1.05);
+}
 
-/* Project Cards - Glassmorphism */
+/* Cards */
 .project-card {
     background: var(--card-bg);
     backdrop-filter: blur(10px);
@@ -62,9 +67,17 @@ body {
     box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
 }
 
-.project-info { padding: 20px; }
-.project-info h3 { font-size: 1.2rem; font-weight: bold; color: var(--accent); }
+.project-info {
+    padding: 20px;
+}
 
+.project-info h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--accent);
+}
+
+/* Tags */
 .tags span {
     font-size: 0.7rem;
     background: rgba(0, 210, 255, 0.1);
@@ -75,6 +88,27 @@ body {
     font-family: 'Fira Code', monospace;
 }
 
+/* Certification */
+.cert-link {
+    display: block;
+}
+
+.certification-card img {
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.certification-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.certification-section .project-info p {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Buttons */
 .btn-action {
     display: inline-block;
     margin-top: 15px;
