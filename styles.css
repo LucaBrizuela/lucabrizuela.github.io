@@ -1,172 +1,74 @@
-body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #e9ecef; /* Light grey background */
-    color: #343a40; /* Dark grey text */
-    margin: 0;
-    padding: 0;
-    transition: background-color 1s ease;
+// --- Animated Background ---
+const canvas = document.getElementById('canvas-bg');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function initCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 }
 
-header {
-    background-color: #007bff; /* Bootstrap primary blue */
-    color: #fff;
-    padding: 15px 0;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = Math.random() * 1 - 0.5;
+        this.speedY = Math.random() * 1 - 0.5;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.y > canvas.height) this.y = 0;
+        if (this.y < 0) this.y = canvas.height;
+    }
+    draw() {
+        ctx.fillStyle = 'rgba(0, 210, 255, 0.5)';
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
 }
 
-nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+function createParticles() {
+    for (let i = 0; i < 80; i++) {
+        particles.push(new Particle());
+    }
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animate);
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
+// --- TYPING EFFECT ---
+function typeEffect(element, speed) {
+    const text = element.innerText;
+    element.innerText = "";
+    let i = 0;
+    const timer = setInterval(() => {
+        if (i < text.length) {
+            element.append(text.charAt(i));
+            i++;
+        } else {
+            clearInterval(timer);
+        }
+    }, speed);
 }
 
-main {
-    padding: 40px 20px;
-    animation: fadeIn 2s;
-}
+document.addEventListener("DOMContentLoaded", () => {
+    initCanvas();
+    createParticles();
+    animate();
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+    const bio = document.getElementById('bio-text');
+    if (bio) typeEffect(bio, 30);
+});
 
-.video-intro {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.bio {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.bio img {
-    border-radius: 50%;
-    margin-bottom: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.bio img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-}
-
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-icons img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.3s, filter 0.3s;
-}
-
-.social-icons img:hover {
-    transform: scale(1.2);
-    filter: brightness(1.5);
-}
-
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-}
-
-.card {
-    background-color: #fff;
-    border: 1px solid #dee2e6;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    width: 100%;
-    max-width: 300px;
-}
-
-.card-body {
-    padding: 20px;
-}
-
-.card-title {
-    color: #007bff; /* Bootstrap primary blue */
-    font-size: 1.25rem;
-    margin-bottom: 10px;
-}
-
-.card-text {
-    font-size: 1rem;
-    color: #6c757d; /* Bootstrap secondary grey */
-}
-
-.btn-primary {
-    background-color: #007bff; /* Bootstrap primary blue */
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-/* Adding the necessary styles for typing effect and highlight effects */
-.typing-effect {
-    font-family: 'Courier New', Courier, monospace;
-    display: inline-block;
-    white-space: pre;
-    font-size: 2rem;
-    color: #007bff; /* Primary color for text */
-    margin-bottom: 20px;
-}
-
-.header .nav-item .nav-link {
-    transition: color 0.3s, text-shadow 0.3s;
-}
-
-.header .nav-item .nav-link:hover {
-    color: #ffc107; /* Highlight color */
-    text-shadow: 0 0 5px #ffc107;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-}
-
-.card .btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.1);
-}
-
-.back-arrow {
-    font-size: 2rem;
-    color: #007bff;
-    cursor: pointer;
-    transition: transform 0.3s, color 0.3s;
-}
-
-.back-arrow:hover {
-    color: #0056b3;
-    transform: scale(1.2);
-}
-
-.social-icons img {
-    width: 40px;
-    height: 40px;
-    margin: 0 10px;
-    transition: transform 0.3s, filter 0.3s;
-}
-
-.social-icons img:hover {
-    transform: scale(1.2);
-    filter: brightness(1.2);
-}
+window.addEventListener('resize', initCanvas);
