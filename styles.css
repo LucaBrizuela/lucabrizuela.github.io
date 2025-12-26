@@ -22,7 +22,6 @@ body {
 }
 
 /* --- BIO CARD (Glassmorphism) --- */
-/* Renamed from .bio-glass to .bio-card to match your HTML */
 .bio-card {
     background: var(--glass);
     backdrop-filter: blur(10px);
@@ -140,3 +139,4 @@ body {
     color: var(--bg);
     text-decoration: none;
 }
+
