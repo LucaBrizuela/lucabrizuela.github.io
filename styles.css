@@ -1,74 +1,99 @@
-// --- Animated Background ---
-const canvas = document.getElementById('canvas-bg');
-const ctx = canvas.getContext('2d');
-let particles = [];
-
-function initCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+:root {
+    --bg-dark: #0a0b10;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --accent: #00d2ff;
+    --text-main: #e0e0e0;
 }
 
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = Math.random() * 1 - 0.5;
-        this.speedY = Math.random() * 1 - 0.5;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.y > canvas.height) this.y = 0;
-        if (this.y < 0) this.y = canvas.height;
-    }
-    draw() {
-        ctx.fillStyle = 'rgba(0, 210, 255, 0.5)';
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-    }
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
 }
 
-function createParticles() {
-    for (let i = 0; i < 80; i++) {
-        particles.push(new Particle());
-    }
+#canvas-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
-    requestAnimationFrame(animate);
+/* Navbar */
+.navbar-custom {
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-// --- TYPING EFFECT ---
-function typeEffect(element, speed) {
-    const text = element.innerText;
-    element.innerText = "";
-    let i = 0;
-    const timer = setInterval(() => {
-        if (i < text.length) {
-            element.append(text.charAt(i));
-            i++;
-        } else {
-            clearInterval(timer);
-        }
-    }, speed);
+.navbar-brand { font-family: 'Fira Code', monospace; color: var(--accent) !important; }
+
+/* Profile Section */
+.profile-container {
+    position: relative;
+    width: 150px;
+    margin: 0 auto;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    initCanvas();
-    createParticles();
-    animate();
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--accent);
+    padding: 5px;
+    transition: transform 0.5s ease;
+}
 
-    const bio = document.getElementById('bio-text');
-    if (bio) typeEffect(bio, 30);
-});
+.profile-img:hover { transform: rotate(5deg) scale(1.05); }
 
-window.addEventListener('resize', initCanvas);
+/* Project Cards - Glassmorphism */
+.project-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+}
+
+.project-info { padding: 20px; }
+.project-info h3 { font-size: 1.2rem; font-weight: bold; color: var(--accent); }
+
+.tags span {
+    font-size: 0.7rem;
+    background: rgba(0, 210, 255, 0.1);
+    color: var(--accent);
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-right: 5px;
+    font-family: 'Fira Code', monospace;
+}
+
+.btn-action {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    transition: 0.3s;
+}
+
+.btn-action.demo {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+.btn-action:hover {
+    filter: brightness(1.2);
+    text-decoration: none;
+}
