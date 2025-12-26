@@ -1,99 +1,91 @@
 :root {
-    --bg-dark: #0a0b10;
-    --card-bg: rgba(255, 255, 255, 0.05);
+    --bg: #050505;
     --accent: #00d2ff;
-    --text-main: #e0e0e0;
+    --glass: rgba(255, 255, 255, 0.03);
+    --text: #ffffff;
+    --muted: #a0a0a0;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-main);
+    background-color: var(--bg);
+    color: var(--text);
     font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
+    margin: 0;
+    min-height: 100vh;
 }
 
 #canvas-bg {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0;
     z-index: -1;
+    width: 100%; height: 100%;
 }
 
-/* Navbar */
-.navbar-custom {
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.navbar-brand { font-family: 'Fira Code', monospace; color: var(--accent) !important; }
-
-/* Profile Section */
-.profile-container {
-    position: relative;
-    width: 150px;
+/* Glassmorphism Bio Card */
+.bio-glass {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
-.profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 3px solid var(--accent);
-    padding: 5px;
-    transition: transform 0.5s ease;
+/* Social Icons 32px */
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }
 
-.profile-img:hover { transform: rotate(5deg) scale(1.05); }
+.social-icon-img {
+    width: 32px;
+    height: 32px;
+    filter: invert(1) brightness(0.8);
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-/* Project Cards - Glassmorphism */
+.social-icon-img:hover {
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(170deg);
+    transform: scale(1.3) translateY(-5px);
+}
+
+/* Project Cards */
 .project-card {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: var(--glass);
+    border: 1px solid rgba(255,255,255,0.05);
     border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.3s ease;
+    transition: 0.3s;
     height: 100%;
+    overflow: hidden;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
     border-color: var(--accent);
-    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.1);
 }
 
-.project-info { padding: 20px; }
-.project-info h3 { font-size: 1.2rem; font-weight: bold; color: var(--accent); }
+.featured-border { border: 1px solid rgba(0, 210, 255, 0.3); }
 
-.tags span {
-    font-size: 0.7rem;
-    background: rgba(0, 210, 255, 0.1);
-    color: var(--accent);
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-right: 5px;
+.tech-tags span {
     font-family: 'Fira Code', monospace;
-}
-
-.btn-action {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 15px;
-    font-size: 0.8rem;
-    border-radius: 5px;
-    text-decoration: none;
-    background: transparent;
-    border: 1px solid var(--accent);
+    font-size: 0.7rem;
     color: var(--accent);
-    transition: 0.3s;
+    background: rgba(0, 210, 255, 0.1);
+    padding: 3px 8px;
+    border-radius: 5px;
+    margin-right: 5px;
 }
 
-.btn-action.demo {
+.mit-badge {
     background: var(--accent);
-    color: var(--bg-dark);
+    color: var(--bg);
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
 }
 
-.btn-action:hover {
-    filter: brightness(1.2);
-    text-decoration: none;
-}
+.back-link { color: var(--accent); text-decoration: none; font-family: 'Fira Code'; }
