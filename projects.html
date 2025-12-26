@@ -3,131 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - My Portfolio</title>
+    <title>Projects - Luca Brizuela Fernández</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .typing-effect {
-            font-family: 'Courier New', Courier, monospace;
-            display: inline-block;
-            white-space: pre;
-            font-size: 2rem;
-            color: #000000; /* Primary color for text */
-            margin-bottom: 20px;
-        }
-
-        .navbar-nav .nav-link {
-            transition: color 0.3s, text-shadow 0.3s;
-        }
-
-        .navbar-nav .nav-link:hover {
-            color: #ffc107; /* Highlight color */
-            text-shadow: 0 0 5px #ffc107;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-        }
-
-        .card .btn-primary:hover {
-            background-color: #0056b3; /* Darker blue on hover */
-            transform: scale(1.1);
-        }
-
-        .card .btn-secondary {
-            background-color: #6c757d; /* Secondary grey color */
-            border: none;
-        }
-
-        .card .btn-secondary:hover {
-            background-color: #5a6268; /* Darker grey on hover */
-            transform: scale(1.1);
-        }
-
-        .back-arrow {
-            font-size: 2rem;
-            color: #007bff;
-            cursor: pointer;
-            transition: transform 0.3s, color 0.3s;
-        }
-
-        .back-arrow:hover {
-            color: #0056b3;
-            transform: scale(1.2);
-        }
-
-        .social-icons img {
-            width: 40px;
-            height: 40px;
-            margin: 0 10px;
-            transition: transform 0.3s, filter 0.3s;
-        }
-
-        .social-icons img:hover {
-            transform: scale(1.2);
-            filter: brightness(1.2);
-        }
-    </style>
 </head>
-<body>
-    <header class="bg-dark text-white">
-        <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#">Portfolio</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="projects.html">Projects</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+<body class="projects-page">
+    <canvas id="canvas-bg"></canvas>
+
     <main class="container mt-5">
-        <section class="projects">
-            <h1 class="text-center typing-effect" id="projects-title">My Projects</h1>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <img src="pacmen_preview.png" class="card-img-top" alt="PacMen Exercise">
-                        <div class="card-body">
-                            <h2 class="card-title">PacMen Exercise</h2>
-                            <p class="card-text">This project involves creating multiple PacMen that bounce around the screen.</p>
-                            <a href="https://github.com/LucaBrizuela/PacMenExercise/tree/main" class="btn btn-primary">View Repository</a>
-                            <a href="https://pacmen.netlify.app" class="btn btn-secondary">Live Demo</a>
-                        </div>
+        <h2 class="section-title text-center mb-5">Selected Works</h2>
+        
+        <div class="row">
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="project-card featured">
+                    <div class="card-badge">MIT xPro Certified</div>
+                    <div class="project-img-container">
+                        <img src="banking_app_thumbnail.png" class="img-fluid" alt="Banking App">
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <img src="eye_exercise_preview.png" class="card-img-top" alt="Eye Exercise">
-                        <div class="card-body">
-                            <h2 class="card-title">Eye Movement Exercise</h2>
-                            <p class="card-text">This project involves animated eyes that follow the user's cursor movement.</p>
-                            <a href="https://github.com/LucaBrizuela/EyeMovementExercise" class="btn btn-primary">View Repository</a>
-                            <a href="https://eyemovement.netlify.app" class="btn btn-secondary">Live Demo</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-4">
-                        <img src="bus_tracker_preview.png" class="card-img-top" alt="Real Time Bus Tracker">
-                        <div class="card-body">
-                            <h2 class="card-title">Real Time Bus Tracker</h2>
-                            <p class="card-text">This project tracks buses in real-time between MIT and Harvard using Mapbox.</p>
-                            <a href="https://github.com/LucaBrizuela/RealTimeBusTracker/tree/main" class="btn btn-primary">View Repository</a>
-                            <a href="https://diegotrust-caesarsahara.codio.io/student_code/index.html" class="btn btn-secondary">Live Demo</a>
+                    <div class="project-info">
+                        <h3>Banking Application</h3>
+                        <p>Full-stack bank simulator featuring secure account creation, persistent data, and transaction management (Deposit/Withdraw).</p>
+                        <div class="tags"><span>React</span><span>Express</span><span>Node.js</span></div>
+                        <div class="project-links">
+                            <a href="https://github.com/LucaBrizuela/Luca-BrizuelaFullStackBankingApplication" class="btn-action">Source</a>
+                            <a href="http://lucabrizuelafullstackbankingapplication.s3.us-east-2.amazonaws.com" class="btn-action demo">Live Demo</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="text-center mt-4">
-                <a href="index.html" class="back-arrow">&larr; Back to Home</a>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="pacmen_preview.png" class="img-fluid" alt="PacMen">
+                    </div>
+                    <div class="project-info">
+                        <h3>PacMen Dynamics</h3>
+                        <p>DOM manipulation exercise focusing on velocity vectors and collision detection within the viewport.</p>
+                        <div class="tags"><span>JS</span><span>Algorithms</span></div>
+                        <div class="project-links">
+                            <a href="https://github.com/LucaBrizuela/PacMenExercise/tree/main" class="btn-action">Source</a>
+                            <a href="https://pacmen.netlify.app" class="btn-action demo">Demo</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </section>
+
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <img src="eye_exercise_preview.png" class="img-fluid" alt="Eye Movement">
+                    </div>
+                    <div class="project-info">
+                        <h3>Visual Tracker</h3>
+                        <p>Interactive coordinate-tracking system that maps mouse positions to CSS translation values in real-time.</p>
+                        <div class="tags"><span>CSS3</span><span>Event Listeners</span></div>
+                        <div class="project-links">
+                            <a href="https://github.com/LucaBrizuela/EyeMovementExercise" class="btn-action">Source</a>
+                            <a href="https://eyemovement.netlify.app" class="btn-action demo">Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="index.html" class="back-link">&larr; Return to Core</a>
+        </div>
     </main>
     <script src="scripts.js"></script>
 </body>
