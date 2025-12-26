@@ -6,7 +6,7 @@
 }
 
 body {
-    background: var(--bg-dark);
+    background-color: var(--bg-dark);
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
@@ -14,11 +14,12 @@ body {
 
 #canvas-bg {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
     z-index: -1;
 }
 
-/* NAVBAR */
+/* Navbar */
 .navbar-custom {
     padding: 20px 0;
     border-bottom: 1px solid rgba(255,255,255,0.1);
@@ -29,8 +30,9 @@ body {
     color: var(--accent) !important;
 }
 
-/* HERO */
+/* Profile */
 .profile-container {
+    position: relative;
     width: 150px;
     margin: 0 auto;
 }
@@ -41,44 +43,28 @@ body {
     border-radius: 50%;
     border: 3px solid var(--accent);
     padding: 5px;
-    transition: transform 0.4s ease;
+    transition: transform 0.5s ease;
 }
 
 .profile-img:hover {
-    transform: scale(1.05) rotate(5deg);
+    transform: rotate(5deg) scale(1.05);
 }
 
-.typing-title {
-    font-size: 2rem;
-}
-
-.subtitle {
-    opacity: 0.8;
-}
-
-/* BIO */
-.bio-card {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 15px;
-    max-width: 700px;
-    margin: auto;
-}
-
-/* CARDS */
+/* Cards */
 .project-card {
     background: var(--card-bg);
     backdrop-filter: blur(10px);
-    border-radius: 15px;
     border: 1px solid rgba(255,255,255,0.1);
-    transition: 0.3s;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
 }
 
 .project-card:hover {
-    border-color: var(--accent);
-    box-shadow: 0 10px 30px rgba(0,210,255,0.25);
     transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0, 210, 255, 0.2);
 }
 
 .project-info {
@@ -86,66 +72,64 @@ body {
 }
 
 .project-info h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
     color: var(--accent);
 }
 
-/* TAGS */
+/* Tags */
 .tags span {
     font-size: 0.7rem;
-    background: rgba(0,210,255,0.1);
+    background: rgba(0, 210, 255, 0.1);
     color: var(--accent);
-    padding: 4px 10px;
+    padding: 2px 8px;
     border-radius: 10px;
     margin-right: 5px;
+    font-family: 'Fira Code', monospace;
 }
 
-/* SOCIAL */
-.social-links img {
-    width: 42px;
-    margin: 0 8px;
+/* Certification */
+.cert-link {
+    display: block;
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
-@media (max-width: 768px) {
-
-    .profile-container {
-        width: 120px;
-    }
-
-    .profile-img {
-        width: 120px;
-        height: 120px;
-    }
-
-    .typing-title {
-        font-size: 1.6rem;
-    }
-
-    .bio-card {
-        margin: 0 10px;
-        padding: 15px;
-    }
-
-    .project-card:hover {
-        transform: none;
-        box-shadow: none;
-    }
-
-    .social-links img {
-        width: 36px;
-    }
+.certification-card img {
+    transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-@media (max-width: 480px) {
-
-    .typing-title {
-        font-size: 1.4rem;
-    }
-
-    .subtitle {
-        font-size: 0.85rem;
-    }
+.certification-card:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.2);
 }
+
+.certification-section .project-info p {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    line-height: 1.6;
+}
+
+/* Buttons */
+.btn-action {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    transition: 0.3s;
+}
+
+.btn-action.demo {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+.btn-action:hover {
+    filter: brightness(1.2);
+    text-decoration: none;
+}
+
 
